@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário de Compra - As Contendas</title>
+  <link rel="stylesheet" href="css/form.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Finalizar Compra</h1>
+      <p class="autor">Livro: <strong>As Contendas - O Esquadrão do Centro da Praça</strong></p>
+    </header>
+
+    <form id="formCompra">
+      <fieldset>
+        <legend>Tipo de Produto</legend>
+        <label><input type="radio" name="tipoProduto" value="unitario" checked> Unitário (R$ 125,00)</label><br>
+        <label><input type="radio" name="tipoProduto" value="luxo"> Kit Luxo (R$ 160,00)</label>
+        <div id="extrasLuxo" style="display: none; margin-top: 10px;">
+          <p><strong>Inclui além do livro:</strong></p>
+          <ul>
+              <li>Marcador de páginas exclusivo</li>
+              <li>Cartas dos membros do esquadrão</li>
+              <li>Uma ecobag e um bottom do Esquadrão do Centro da Praça</li>
+              <li>Dedicatória autografada do autor</li>
+          </ul>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Endereço</legend>
+
+        <label for="destinatario">Nome do Destinatário</label>
+        <input type="text" id="destinatario" name="destinatario" required placeholder="Nome Completo">
+
+        <label for="pais">País</label>
+        <input type="text" id="pais" name="pais" value="Brasil" required>
+
+        <label for="cep">CEP</label>
+        <input type="text" id="cep" name="cep" required placeholder="00000-000">
+
+        <label for="estado">Estado</label>
+        <input type="text" id="estado" name="estado" required>
+
+        <label for="endereco">Endereço</label>
+        <input type="text" id="endereco" name="endereco" required>
+
+        <label for="numero">Número</label>
+        <input type="text" id="numero" name="numero" required>
+
+        <label for="cidade">Cidade</label>
+        <input type="text" id="cidade" name="cidade" required>
+
+        <label for="bairro">Bairro</label>
+        <input type="text" id="bairro" name="bairro" required>
+
+        <label for="complemento">Complemento</label>
+        <input type="text" id="complemento" name="complemento">
+
+        <p class="info-frete" id="freteInfo">* Frete: R$ 10,00</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Dados Pessoais</legend>
+
+        <label for="nome">Nome Completo</label>
+        <input type="text" id="nome" name="nome" required placeholder="Nome Completo">
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" required placeholder="Insira um email para que possamos contatá-lo!">
+
+        <label for="telefone">Telefone de Contato</label>
+        <input type="tel" id="telefone" name="telefone" required placeholder="(xx) 000000000">
+
+        <label for="cpf">CPF</label>
+        <input type="text" id="cpf" name="cpf" required placeholder="000.000.000.-00">
+      </fieldset>
+
+      <p class="preco-total" id="precoTotal">Total: R$ 130,00</p>
+      <button class="botao-submit" type="submit">Pagar Agora!</button>
+<div id="infoBox" style="display: none; margin-top: 20px; background: #1a1a1a; padding: 10px; border-radius: 8px; color: #f9f9f9;">
+  Assim que o pagamento for confirmado, você receberá um e-mail com os detalhes do pedido e o código de rastreio assim que for postado.
+</div>
+    </form>
+
+    <footer>
+      <p>&copy; 2025 Todos os direitos reservados</p>
+    </footer>
+  </div>
+
+  <script>
+    const estadoInput = document.getElementById('estado');
+    const freteInfo = document.getElementById('freteInfo');
+    const precoTotal = document.getElementById('precoTotal');
+    const produtoRadios = document.getElementsByName('tipoProduto');
+    const extrasLuxo = document.getElementById('extrasLuxo');
+
+    function atualizarPreco() {
+      const tipo = [...produtoRadios].find(r => r.checked).value;
+      const frete = estadoInput.value.toLowerCase().includes("são paulo") ? 15 : 25;
+      const base = tipo === "luxo" ? 160 : 125;
+      precoTotal.textContent = `Total: R$ ${base + frete},00`;
+      freteInfo.textContent = `* Frete: R$ ${frete},00`;
+      extrasLuxo.style.display = tipo === "luxo" ? "block" : "none";
+    }
+
+    estadoInput.addEventListener('input', atualizarPreco);
+    produtoRadios.forEach(radio => radio.addEventListener('change', atualizarPreco));
+
+    document.getElementById('formCompra').addEventListener('submit', function (e) {
+      if (!this.checkValidity()) {
+        e.preventDefault();
+        alert('Por favor, preencha todos os campos obrigatórios corretamente.');
+      }
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  emailjs.init("IjSXQpmBbQTjNNi58");
+
+  document.getElementById("formCompra").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const tipo = [...document.getElementsByName("tipoProduto")].find(r => r.checked).value;
+    const frete = document.getElementById("estado").value.toLowerCase().includes("são paulo") ? 15 : 25;
+    const base = tipo === "luxo" ? 160 : 125;
+    const total = base + frete;
+
+    const formData = {
+      nome: document.getElementById("nome").value,
+      email: document.getElementById("email").value,
+      telefone: document.getElementById("telefone").value,
+      cpf: document.getElementById("cpf").value,
+      destinatario: document.getElementById("destinatario").value,
+      endereco: document.getElementById("endereco").value,
+      numero: document.getElementById("numero").value,
+      complemento: document.getElementById("complemento").value,
+      bairro: document.getElementById("bairro").value,
+      cidade: document.getElementById("cidade").value,
+      estado: document.getElementById("estado").value,
+      cep: document.getElementById("cep").value,
+      pais: document.getElementById("pais").value,
+      tipoProduto: tipo,
+      precoTotal: total
+    };
+
+    emailjs.send("service_sidequestemtail", "template_gm4ea67", formData)
+      .then(() => {
+        if (total === 140) window.open("https://nubank.com.br/cobrar/4r0r2/68362b2f-05d8-4999-bd68-a34998a7ac41", "_blank");
+        else if (total === 150) window.open("https://nubank.com.br/cobrar/4r0r2/68362b4e-b59f-49ec-8f8d-2dc653cc8885", "_blank");
+        else if (total === 175) window.open("https://nubank.com.br/cobrar/4r0r2/68362b68-c3e1-4988-b6a5-b1a13acf5211", "_blank");
+        else if (total === 185) window.open("https://nubank.com.br/cobrar/4r0r2/68362b82-1429-4ef6-856f-1601a3ae266c", "_blank");
+
+        document.getElementById("infoBox").style.display = "block";
+      })
+      .catch(() => alert("Erro ao enviar os dados. Tente novamente."));
+  });
+</script>
+</body>
+</html>

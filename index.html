@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>As Contendas - O Esquadrão do Centro da Praça</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>As Contendas</h1>
+      <h3> O Esquadrão do Centro da Praça</h3>
+      <p class="autor">por L. M. Albuquerque</p>
+    </header>
+
+    <main>
+      <div class="livro">
+        <div class="imagens">
+          <img id="livroImg" src="assets/big_cover_front.png" alt="Capa do livro">
+          <div class="miniaturas">
+        
+          </div>
+        </div>
+
+        <div class="info">
+          <h2>Sinopse</h2>
+          <p>Um livro que originou-se de uma webnovel fantasiosa, e, por conta do seu sucesso ganhou uma edição em versão física. Para todos os amantes medievais e de literatura épica.
+            Após a trágica morte de seu irmão mais velho, o bárbaro Ayel é obrigado a abandonar suas raízes tribais e adotar um novo papel como governante. Herdeiro de um reino em caos, a brutalidade das batalhas que estava acostumado precisou dar espaço para as intrigas políticas, desafios da burocracia e os jogos de poder da nobreza. Prestes a seguir um legado que não desejou, ele precisará conciliar as responsabilidades de um monarca com a sua natureza selvagem.</p>
+
+          <div class="precos">
+            <div class="preco-box" onclick="toggleunit()">
+              <h3>Versão Comum</h3>
+              <p class="preco">R$ 125,00</p>
+            </div>
+        
+            <div class="preco-box luxo" onclick="toggleLuxo()">
+              <h3>Versão Luxo</h3>
+              <p class="preco">R$ 160,00</p>
+            </div>
+          </div>
+
+          <div id="luxoDetalhes" class="luxo-detalhes hidden">
+            <ul>
+                <h3>
+                    Na Edição de Luxo além do livro, você garante:
+                </h3>
+              <li>Marcador de páginas exclusivo</li>
+              <li>Cartas dos membros do esquadrão</li>
+              <li>Uma ecobag e um bottom do Esquadrão do Centro da Praça</li>
+              <li>Dedicatória autografada do autor</li>
+            </ul>
+          </div>
+
+          <div class="botoes">
+            <a class="botao comprar" href="form.html">Quero Comprar!</a>
+            <a class="botao contato" href="mailto:drive.sidequest@gmail.com">Email</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Todos os direitos reservados</p>
+    </footer>
+  </div>
+
+  <script>
+    function trocarImagem(el) {
+      document.getElementById('livroImg').src = el.src;
+    }
+
+    function toggleLuxo() {
+      const detalhes = document.getElementById('luxoDetalhes');
+      detalhes.classList.toggle('hidden');
+    }
+  </script>
+</body>
+</html>
