@@ -62,12 +62,12 @@ De qualquer forma, de todos os projetos que eu já desenvolvi, mesmo que não ti
 ##  Autor
 
 L. M. Albuquerque — Escritor e Desenvolvedor em Formação  
-[Email de contato](https://albuquerquelm.github.io/as-contendas_venda/)
+[Email de contato](mailto:drive.sidequest@gmail.com)
 
 ---
 
 ##  RESULTADO FINAL
 
 Páginas hospedadas no GitHub Pages para visualização:
-[Clique Aqui para Acessar a Página Online](link)
+[Clique Aqui para Acessar a Página Online](https://albuquerquelm.github.io/as-contendas_venda/)
 
