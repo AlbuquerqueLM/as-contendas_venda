@@ -62,7 +62,7 @@ De qualquer forma, de todos os projetos que eu já desenvolvi, mesmo que não ti
 ##  Autor
 
 L. M. Albuquerque — Escritor e Desenvolvedor em Formação  
-[Email de contato](mailto:drive.sidequest@gmail.com)
+[Email de contato](https://albuquerquelm.github.io/as-contendas_venda/)
 
 ---
 
