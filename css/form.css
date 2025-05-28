@@ -1,1 +1,133 @@
+:root {
+        --cor-forte: #8f0909;
+        --cor-fraca: #e0c97f;
+        --cor-texto1: #ffffff;
+        --cor-texto2: #ffffff;
+        --cor-hover: #ffffff;
+
+        }
+
+body {
+  background-color: #763504;
+  color: #f9f9f9;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  animation: fadeIn 1s ease-in;
+  background-image: url(../assets/backgroundbeautiful.jpg);
+  background-size: cover; 
+  background-attachment: fixed;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+form {
+  background-color: #763504;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #333;
+}
+
+fieldset {
+  border: 1px solid var(--cor-forte);
+  margin-bottom: 12px;   
+  padding: 10px 12px;    
+  border-radius: 8px;    
+}
+
+legend {
+  font-weight: bold;
+  padding: 0 10px;
+}
+
+label {
+  display: block;
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  width: 100%;
+  max-width: 100%;       
+  box-sizing: border-box; 
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #282828;
+  color: #f9f9f9;
+}
+
+input:focus {
+  border-color: var(--cor-forte);
+  outline: none;
+  background-color: #333;
+}
+
+.botao-submit {
+  background-color: var(--cor-forte);
+  color: #0e0e0e;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.botao-submit:hover {
+  background-color: #fff1a3;
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #888;
+}
+
+.preco-total {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px 0;
+  color: #ff6c6c;
+}
+
+.info-frete {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #bbb;
+}
+
+#infoBox {
+  background-color: var(--cor-fraca);
+  color: #111;
+  font-weight: bold;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
