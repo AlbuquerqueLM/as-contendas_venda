@@ -1,0 +1,148 @@
+:root {
+        --cor-forte: #8f0909;
+        --cor-fraca: #e0c97f;
+        --cor-texto1: #ffffff;
+        --cor-texto2: #ffffff;
+        --cor-hover: #ffffff;
+
+        }
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background-color: #0e0e0e;
+  color: var(--cor-texto1); 
+  background-image: url(../assets/backgroundbeautiful.jpg);
+  background-size: cover; 
+  background-attachment: fixed;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 3em;
+  color: var(--cor-forte);
+}
+
+.autor {
+  color: #ccc;
+}
+
+.livro {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.imagens img {
+  width: 300px;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.imagens img:hover {
+  transform: scale(1.05);
+}
+
+.miniaturas img {
+  width: 80px;
+  margin-top: 10px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  transition: border 0.2s;
+}
+
+.miniaturas img:hover {
+  border-color: var(--cor-forte);
+}
+
+.info {
+  max-width: 500px;
+}
+
+.info h2 {
+  color: var(--cor-forte);
+}
+
+.precos {
+  display: flex;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.preco-box {
+  background: #763504;
+  border: 2px solid #444;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.3s;
+}
+
+.preco-box:hover {
+  transform: scale(1.03);
+  border-color: var(--cor-forte);
+}
+
+.luxo-detalhes {
+  background: #763504;
+  border-left: 4px solid var(--cor-forte);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.luxo-detalhes ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.botao {
+  display: inline-block;
+  background-color: #7d7415;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 10px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.botao:hover {
+  background-color: var(--cor-forte);
+  transform: scale(1.05);
+}
+
+.botao.contato {
+  background-color: #fba81b;
+}
+
+.botao.contato:hover {
+  background-color: var(--cor-forte);
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.9em;
+  color: #888;
+  border-top: 1px solid #444;
+  padding-top: 20px;
+}
